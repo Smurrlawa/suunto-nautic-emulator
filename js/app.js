@@ -272,7 +272,8 @@
   function fit() {
     const wrap = document.getElementById('devwrap');
     const W = 980, H = 720;
-    const avail = Math.min(wrap.clientWidth / W, (window.innerHeight - 20) / H, 1.2);
+    const narrow = window.innerWidth <= 1100;
+    const avail = Math.min(wrap.clientWidth / W, narrow ? 1.2 : (window.innerHeight - 20) / H, 1.2);
     deviceEl.style.transform = 'scale(' + Math.max(0.3, avail) + ')';
     wrap.style.height = H * Math.max(0.3, avail) + 'px';
   }
