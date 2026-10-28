@@ -12,6 +12,10 @@ Kein Build nötig – reines HTML/CSS/JavaScript ohne Abhängigkeiten.
 - `index.html` direkt im Browser öffnen **oder**
 - lokal servieren: `python3 -m http.server` und `http://localhost:8000` öffnen.
 
+Online über GitHub Pages: Der Workflow `.github/workflows/pages.yml` veröffentlicht die Seite bei jedem Push.
+Einmalig nötig: *Settings → Pages → Source: GitHub Actions*. (Bei privaten Repos setzt GitHub Pages ein kostenpflichtiges
+GitHub-Abo voraus; sonst das Repo öffentlich machen.)
+
 Die Schrift (Barlow Semi Condensed) wird von Google Fonts geladen; offline wird eine Systemschrift verwendet.
 Einstellungen, Logbuch und Gewebesättigung werden im `localStorage` des Browsers gespeichert.
 
