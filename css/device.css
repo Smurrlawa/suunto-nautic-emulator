@@ -1,0 +1,62 @@
+:root {
+  --bg: #2f3136;
+  --panel: #1d1f23;
+  --ink: #e9e9e9;
+  --muted: #9aa0a6;
+  --teal: #1fe0c4;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Barlow Semi Condensed", "Roboto Condensed", "Arial Narrow", sans-serif; }
+header.top { padding: 12px 20px 4px; }
+header.top h1 { margin: 0; font-size: 26px; font-weight: 600; letter-spacing: .5px; }
+header.top h1 span { color: var(--teal); font-weight: 500; }
+header.top p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+header.top a { color: var(--teal); }
+main { display: flex; gap: 16px; padding: 8px 16px 16px; align-items: flex-start; }
+#devwrap { flex: 1 1 auto; min-width: 0; position: relative; }
+#device { width: 980px; height: 720px; position: relative; transform-origin: top left; user-select: none; -webkit-user-select: none; touch-action: none; }
+
+/* Gehäuse (nach Abbildung Kap. 2.1) */
+#device .body { position: absolute; left: 90px; top: 110px; width: 800px; height: 500px; border-radius: 70px;
+  background: linear-gradient(160deg, #2a2b2e, #121314 60%, #1b1c1e); box-shadow: 0 30px 60px rgba(0,0,0,.55), inset 0 2px 3px rgba(255,255,255,.08), inset 0 -3px 6px rgba(0,0,0,.6); }
+#device .bezel { position: absolute; left: 48px; top: 40px; width: 704px; height: 420px; border-radius: 40px; background: #060606;
+  box-shadow: inset 0 0 0 3px #2b2c2f, inset 0 0 22px rgba(0,0,0,.9); }
+#device .screen { position: absolute; left: 8px; top: 20px; width: 688px; height: 380px; border-radius: 22px; overflow: hidden; background: #000; }
+#device .brand { position: absolute; left: 758px; top: 190px; width: 36px; writing-mode: vertical-rl; font-weight: 700; color: #bbb; letter-spacing: 3px; font-size: 18px; }
+#device .brand .tri, .logo .tri { display: inline-block; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 9px solid #e8333c; margin-right: 6px; vertical-align: middle; }
+#device .screw { position: absolute; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #555, #1a1a1a 70%); box-shadow: inset 0 0 0 2px #0b0b0b; }
+#device .s1 { left: 24px; top: 18px; } #device .s2 { left: 389px; top: 10px; } #device .s3 { right: 24px; top: 18px; }
+#device .s4 { left: 8px; top: 239px; } #device .s5 { right: 8px; top: 239px; }
+#device .s6 { left: 24px; bottom: 18px; } #device .s7 { left: 389px; bottom: 10px; } #device .s8 { right: 24px; bottom: 18px; }
+#device .btn { position: absolute; width: 96px; height: 34px; background: linear-gradient(#3a3b3e, #1d1e20); border-radius: 8px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,.6); transition: transform .05s; }
+#device .btn.down { filter: brightness(1.5); }
+#device .b-up { left: 200px; top: -26px; } #device .b-back { left: 340px; top: -26px; }
+#device .b-down { left: 200px; bottom: -26px; } #device .b-ok { left: 340px; bottom: -26px; }
+#device .b-up.down { transform: translateY(4px); } #device .b-back.down { transform: translateY(4px); }
+#device .b-down.down { transform: translateY(-4px); } #device .b-ok.down { transform: translateY(-4px); }
+#device .btn i { position: absolute; left: 42px; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; }
+#device .b-up i { top: 6px; border-bottom: 8px solid #e7d22c; }
+#device .b-down i { bottom: 6px; border-top: 8px solid #e7d22c; }
+#device .nub { position: absolute; left: 304px; width: 30px; height: 22px; background: #2a2b2d; border-radius: 4px; }
+#device .n-top { top: -16px; } #device .n-bot { bottom: -16px; }
+#device .lbl { position: absolute; font-size: 30px; font-weight: 600; color: #cfd2d6; pointer-events: none; }
+#device .lbl::after { content: ""; position: absolute; left: 50%; width: 2px; background: #888; }
+#device .l-up { left: 318px; top: 20px; } #device .l-up::after { top: 40px; height: 40px; }
+#device .l-back { left: 446px; top: 0; } #device .l-back::after { top: 40px; height: 62px; }
+#device .l-down { left: 300px; top: 660px; } #device .l-down::after { bottom: 40px; height: 38px; }
+#device .l-ok { left: 456px; top: 660px; } #device .l-ok::after { bottom: 40px; height: 38px; }
+
+/* Trageausrichtung "Tasten rechts": Gerät 180° gedreht, Anzeige bleibt lesbar */
+#device.flip .body { transform: rotate(180deg); }
+#device.flip .screen { transform: rotate(180deg); }
+#device.flip .lbl { display: none; }
+
+#device.shake .body { animation: shake .12s linear 4; }
+@keyframes shake { 0% { margin-left: 0; } 25% { margin-left: -4px; } 75% { margin-left: 4px; } 100% { margin-left: 0; } }
+
+/* Taschenlampe (Position am Gerät nicht dokumentiert) */
+#device .torchglow { position: absolute; left: 50%; top: 100%; width: 520px; height: 220px; margin-left: -260px; pointer-events: none; opacity: 0;
+  background: radial-gradient(ellipse at top, rgba(255,255,235,.55), rgba(255,255,235,0) 70%); transition: opacity .2s; }
+#device.torch .torchglow { opacity: 1; }
+
+@media (max-width: 1100px) { main { flex-direction: column; } #debug { width: 100% !important; max-height: none !important; } }

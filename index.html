@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suunto Nautic Emulator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/device.css">
+<link rel="stylesheet" href="css/screen.css">
+<link rel="stylesheet" href="css/debug.css">
+</head>
+<body>
+<header class="top">
+  <h1>Suunto Nautic <span>Web-Emulator</span></h1>
+  <p>Inoffizielle Demo nach der deutschen Bedienungsanleitung (Stand 2026-01-22). Nicht zum Tauchen verwenden. · <a href="docs/UNKLAR.md">Unklare Punkte &amp; Grenzen</a></p>
+</header>
+<main>
+  <section id="devwrap">
+    <div id="device">
+      <div class="lbl l-up">Up</div><div class="lbl l-back">Back</div><div class="lbl l-down">Down</div><div class="lbl l-ok">OK</div>
+      <div class="body">
+        <div class="btn b-up" data-b="up"><i></i></div>
+        <div class="btn b-back" data-b="back"></div>
+        <div class="btn b-down" data-b="down"><i></i></div>
+        <div class="btn b-ok" data-b="ok"></div>
+        <div class="nub n-top"></div><div class="nub n-bot"></div>
+        <span class="screw s1"></span><span class="screw s2"></span><span class="screw s3"></span><span class="screw s4"></span>
+        <span class="screw s5"></span><span class="screw s6"></span><span class="screw s7"></span><span class="screw s8"></span>
+        <div class="bezel">
+          <div id="screen" class="screen"></div>
+        </div>
+        <div class="brand"><span class="tri"></span>SUUNTO</div>
+        <div class="torchglow"></div>
+      </div>
+    </div>
+  </section>
+  <aside id="debug"></aside>
+</main>
+<script src="js/deco.js"></script>
+<script src="js/util.js"></script>
+<script src="js/state.js"></script>
+<script src="js/sim.js"></script>
+<script src="js/alarms.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/face.js"></script>
+<script src="js/screens.js"></script>
+<script src="js/app.js"></script>
+<script src="js/debug.js"></script>
+</body>
+</html>
